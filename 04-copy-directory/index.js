@@ -18,7 +18,7 @@ fs.readdir(srcPath, (err, files) => {
           console.error("Sorry, I failed to copy ", err);
           return;
         }
-        console.log("Files successfuly copied");
+        console.log("File successfuly copied");
       });
     });
   }
