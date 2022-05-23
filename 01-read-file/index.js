@@ -5,7 +5,7 @@ const filePath = path.join(__dirname, 'text.txt');
 const reader = fs.createReadStream(filePath);
 
 reader.on('data', (data) => {
-console.log(data.toString());
+  console.log(data.toString());
 });
 
 

@@ -16,27 +16,27 @@ var rl = readline.createInterface({
 });
 
 rl.on('SIGINT', () =>{
-  console.log("Thank you! Have a nice cross-check!");
+  console.log('Thank you! Have a nice cross-check!');
   process.exit();
 });
 
 
 function write() {
 
-rl.question("Hey, student1, please write something \n ", function(answer) {
+  rl.question('Hey, student1, please write something \n ', function(answer) {
 
-  if (answer.toLowerCase().trim() === 'exit') {
-    console.log("Thank you! Have a nice cross-check!");
-    rl.close();
-  }
-  else {
-    writeStream.write(answer + '\n');
-    write();
-  }
+    if (answer.toLowerCase().trim() === 'exit') {
+      console.log('Thank you! Have a nice cross-check!');
+      rl.close();
+    }
+    else {
+      writeStream.write(answer + '\n');
+      write();
+    }
 
   
-});
+  });
 
 }
 
-write()
+write();

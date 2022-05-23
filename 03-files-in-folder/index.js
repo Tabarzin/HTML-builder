@@ -1,6 +1,6 @@
-const path = require("path");
-const dirPath = path.join(__dirname, "secret-folder");
-const fs = require("fs");
+const path = require('path');
+const dirPath = path.join(__dirname, 'secret-folder');
+const fs = require('fs');
 
 let name, ext, size;
 
@@ -15,9 +15,9 @@ fs.readdir(dirPath, (err, files) => {
           name = path.parse(file).name;
           ext = path.parse(file).ext;
           size = stats.size;
-        } else {return}
+        } else {return;}
 
-        console.log(name, " - ", ext, " - ", size, "Kb");
+        console.log(name, ' - ', ext, ' - ', size, 'Kb');
       });
     });
   }
