@@ -5,6 +5,23 @@ const destPath = path.join(__dirname, 'project-dist');
 
 const fsPromises = fs.promises;
 
+fs.access('05-merge-styles/project-dist/bundle.css', function (error) {
+  if (error) {
+    return
+  } else {
+    fs.unlink('05-merge-styles/project-dist/bundle.css', (err) => {
+     
+      if (err) {
+      console.error(err)
+      
+      return
+      }
+  });
+}
+  
+});
+
+
 fs.readdir(srcPath, (err, files) => {
   if (err) console.log(err);
   else {
