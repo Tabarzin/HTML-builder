@@ -2,7 +2,6 @@ const path = require("path");
 const destPath = path.join(__dirname, "files-copy");
 const srcPath = path.join(__dirname, "files");
 const fs = require("fs");
-const { createDecipheriv } = require("crypto");
 const fsPromises = fs.promises;
 
 fs.access("04-copy-directory/files-copy", (err) => {
