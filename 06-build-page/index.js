@@ -7,19 +7,6 @@ const stylePath = path.join(__dirname, "styles");
 const fs = require("fs");
 const fsPromises = fs.promises;
 
-// fs.access('06-build-page/project-dist/assets', (error) => {
-//   if (error) {
-    
-//   } else {
-//     fs.rm('06-build-page/project-dist/assets', { recursive: true, force: true }, (err) => {
-//       if (err) {
-//         return;
-//       }
-      
-//     });
-//   }
-// });
-
 fs.access(destPath, (error) => {
   if (error) {
   } else {
@@ -31,8 +18,6 @@ fs.access(destPath, (error) => {
     });
   }
 });
-
-
 
 function buildProject() {
   fsPromises.mkdir("06-build-page/project-dist", { recursive: true });
