@@ -7,24 +7,23 @@ const stylePath = path.join(__dirname, "styles");
 const fs = require("fs");
 const fsPromises = fs.promises;
 
-fs.access(destPath, (error) => {
-  if (error) {
+// fs.access(destPath, (error) => {
+//   if (error) {
     
-  } else {
-    fs.rm(destPath, { recursive: true, force: true }, (err) => {
-      if (err) {
-        return;
-      }
-      buildProject();
-    });
-  }
-});
+//   } else {
+//     fs.rm(destPath, { recursive: true, force: true }, (err) => {
+//       if (err) {
+//         return;
+//       }
+//       buildProject();
+//     });
+//   }
+// });
 
-function buildProject() {
-  fsPromises.mkdir("06-build-page/project-dist", { recursive: true });
-}
+async function readAndWrtie () {
 
-//buildProject();
+
+
 
 // Read template
 
@@ -63,7 +62,11 @@ fs.readdir(compsPath, (err, files) => {
   }
 });
 
+}
+
 // Create CSS bundle
+async function createCSS () {
+
 
 fs.readdir(stylePath, (err, files) => {
   if (err) console.log(err);
@@ -96,6 +99,7 @@ fs.readdir(stylePath, (err, files) => {
   }
 });
 
+}
 // Copy assets
 
 async function copyAssets(src, dest) {
@@ -112,4 +116,13 @@ async function copyAssets(src, dest) {
   }
 }
 
-copyAssets("06-build-page/assets", "06-build-page/project-dist/assets");
+
+async function buildProject() {
+  await fsPromises.rm("06-build-page/project-dist", { force: true, recursive: true });
+  await fsPromises.mkdir("06-build-page/project-dist", { force: true,  recursive: true });
+  await readAndWrtie();
+  await copyAssets("06-build-page/assets", "06-build-page/project-dist/assets");
+  await createCSS();
+}
+
+buildProject();
