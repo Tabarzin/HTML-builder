@@ -9,6 +9,7 @@ const fsPromises = fs.promises;
 
 fs.access(destPath, (error) => {
   if (error) {
+    
   } else {
     fs.rm(destPath, { recursive: true, force: true }, (err) => {
       if (err) {
@@ -23,7 +24,7 @@ function buildProject() {
   fsPromises.mkdir("06-build-page/project-dist", { recursive: true });
 }
 
-buildProject();
+//buildProject();
 
 // Read template
 
